@@ -157,7 +157,10 @@ nosetests.xml # Test results
 data/raw/basefile.tar
 .vscode
 data/raw/train.csv
+data/raw/test.csv
 cleaned_data/train_clean.csv
+cleaned_data/test_clean.csv
+cleaned_data/train_row_cleaned.csv
 **/train_geocoded.csv
 data/processed/geocoding-missing-coords/train_geocoded_train.csv
 **/*.pkl
