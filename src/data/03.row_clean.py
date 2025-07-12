@@ -89,7 +89,8 @@ print(df.info())
 
 
 #%%
-# 아파트/전용면적(정수로 변환) 별 이상치거래 확인
+# 아파트/전용면적 별 이상치거래 확인
+## 전용면적은 오타 방지를 위해 소숫점이하는 버리고 진행
 
 # 판단기준:
 ## 같은 아파트 및 전용면적별로 각 거래일자의 거래와 앞뒤의 거래를 포함한 11개 target을 이용하여
@@ -135,11 +136,11 @@ print(df.info())
 
 
 #%%
-# 필요없는 column제거
+# 필요없는 column제거 후 저장
 del_col_list = ['전용면적_floor', 'rolling_robust_z', 'is_outlier_robust_target']
-df_cleaned = df.drop(columns=del_col_list, errors='ignore').reset_index()
+df = df.drop(columns=del_col_list, errors='ignore')
 
-display(df_cleaned.info())
-display(df_cleaned.head())
+display(df.info())
+display(df.head())
 
-df_cleaned.to_csv('../../cleaned_data/train_row_cleaned.csv', index=False)
+df.to_csv('../../cleaned_data/train_row_cleaned.csv', index=False)
