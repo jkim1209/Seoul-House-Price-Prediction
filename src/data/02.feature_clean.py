@@ -288,6 +288,7 @@ transportation_train_df = pd.read_csv("../../data/processed/transportation-featu
 transportation_test_df = pd.read_csv("../../data/processed/transportation-features/test_transportation_features.csv")
 
 transportation_df = pd.concat([transportation_train_df, transportation_test_df])
+transportation_df = transportation_df[transportation_df['아파트명'].notna() & (transportation_df['아파트명'].str.strip() != '')]
 
 # # 같은 아파트명에 대해 정보가 2개 이상인 건이 있는지 확인
 # check_cols = transportation_df.columns.difference(['아파트명'])
@@ -304,8 +305,38 @@ transportation_df = pd.concat([transportation_train_df, transportation_test_df])
 # display(transfortation_df[transportation['아파트명] == 'DMC아이파크'])
 
 # 같은 아파트명인데 여러개의 고유값을 가진 아파트들에 대해서는 최빈값으로 값 통일
-unique_transportation_df = transportation_df.groupby(['아파트명']).agg(lambda x: x.mode()).reset_index()
+unique_transportation_df = transportation_df.groupby(['아파트명']).agg(lambda x: x.mode().iloc[0]).reset_index()
 df = df.merge(unique_transportation_df, how='left', on=('아파트명'))
+
+
+#%%
+# 최근 1개월, 3개월, 6개월, 1년간 해당 아파트의 거래건수
+df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m', errors='coerce').dt.to_period('M').dt.to_timestamp()
+df = df.sort_values(['아파트명', '계약년월'])
+
+from tqdm import tqdm
+tqdm.pandas()
+
+def count_past_transactions(group, months):
+    group = group.sort_values('계약년월')
+    
+    results = {f'과거{m}개월_거래수': [] for m in months}
+    
+    for idx, row in group.iterrows():
+        for m in months:
+            past_start = row['계약년월'] - pd.DateOffset(months=m)
+            past_end = row['계약년월']
+            count = group[(group['계약년월'] >= past_start) & (group['계약년월'] < past_end)].shape[0]
+            results[f'과거{m}개월_거래수'].append(count)
+    
+    return pd.DataFrame(results, index=group.index)
+
+
+months = [1, 3, 6, 12]
+monthly_counts_df = df.groupby('아파트명').progress_apply(count_past_transactions, months=months)
+monthly_counts_df.reset_index(level=0, drop=True, inplace=True)
+
+df = pd.concat([df, monthly_counts_df], axis=1)
 
 
 #%%
@@ -318,6 +349,7 @@ final_columns = [
                 '강남3구여부',
                 
                 # 아파트 특성 변수
+                '아파트명',
                 '전용면적',
                 '층',
                 '홈페이지유무',
@@ -341,6 +373,12 @@ final_columns = [
                 # 인구수관련 변수
                 '총인구수',
                 '성비(남/여)',
+
+                # 과거 거래수 변수
+                '과거1개월_거래수',
+                '과거3개월_거래수',
+                '과거6개월_거래수',
+                '과거12개월_거래수',
 
                 # 대출금리 변수
                 'loanrate_1m', 'loanrate_3m', 'loanrate_6m', 'loanrate_12m',
