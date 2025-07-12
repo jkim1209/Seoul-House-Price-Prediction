@@ -72,10 +72,6 @@ if not os.path.exists(loanrate_path):
     loanrate_df = pd.DataFrame({'month': month_list, 'loanrate': loanrate_list})
     loanrate_df.to_csv(loanrate_path, index=False)
 
-#%%
-display(loanrate_df)
-display(py_json[:5])
-
 
 #%%
 # import & save external data - 인구수 데이터
