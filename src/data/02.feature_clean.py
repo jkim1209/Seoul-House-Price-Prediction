@@ -247,13 +247,15 @@ df = pd.merge(df, loanrate_df, how = 'left', left_on = '계약년월', right_on 
 
 #%%
 # 아파트 브랜드등급 추가
-highend_aptlist = ['디에이치', '아크로', '써밋', '트리마제', '르엘', '푸르지오써밋', '위브더제니스']
-premium_aptlist = ['삼성', '현대', '대우', '대림', 'GS', '지에스', '포스코', '롯데', 'SK', '에스케이', '한화']
+highend_aptlist = ['디에이치', '아크로', '써밋', '트리마제', '르엘', '푸르지오써밋', '위브더제니스', 
+                   'PH129', '파르크한남', '나인원한남', '포제스한강', '한남더힐', '갤러리아포레', '포제스한강']
+premium_constlist = ['삼성', '현대', '대우', '대림', 'GS', '지에스', '포스코', '롯데', 'SK', '에스케이', '한화']
 # 출처: 한국기업평판연구소 브랜드평판지수 https://brikorea.com/
+#      https://blog.naver.com/hocho0820/223354805570
 
 df['브랜드등급'] = '기타'
 df.loc[df['아파트명'].str.contains('|'.join(highend_aptlist), case=False, na=False), '브랜드등급'] = '하이엔드'
-df.loc[(df['브랜드등급'] == '기타') & df['건설사'].str.contains('|'.join(premium_aptlist), case=False, na=False), '브랜드등급'] = '프리미엄'
+df.loc[(df['브랜드등급'] == '기타') & df['건설사'].str.contains('|'.join(premium_constlist), case=False, na=False), '브랜드등급'] = '프리미엄'
 
 
 # a = df[df['브랜드등급'] == '하이엔드'][['시군구','아파트명','단지분류','건설사','브랜드등급']]
