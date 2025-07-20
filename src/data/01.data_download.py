@@ -4,7 +4,6 @@
 
 # import package needed
 # %pip install -r requirements.txt
-
 #%%
 # import package needed
 import os
@@ -18,6 +17,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 import missingno as msno
+from IPython.display import display
 
 # set kr font
 import matplotlib.font_manager
@@ -70,7 +70,15 @@ if not os.path.exists(loanrate_path):
             loanrate_list.append(i['DT'])
 
     loanrate_df = pd.DataFrame({'month': month_list, 'loanrate': loanrate_list})
+<<<<<<< HEAD
+    loanrate_df.to_csv(loanrate_path, index=False)
+
+#%%
+display(loanrate_df)
+display(py_json[:5])
+=======
     loanrate_df.to_csv(loanrate_path, index=False, encoding='utf-8')
+>>>>>>> aabb52f7f46a15aeafec2a35a79392fb457251b6
 
 
 #%%
@@ -128,3 +136,8 @@ print(subway_rawdf.head(), "\n")
 
 print(loanrate_df.head(), "\n")
 print(population_df.head(), "\n")
+<<<<<<< HEAD
+
+# %%
+=======
+>>>>>>> aabb52f7f46a15aeafec2a35a79392fb457251b6

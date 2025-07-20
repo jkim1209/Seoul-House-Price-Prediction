@@ -1,0 +1,160 @@
+2025-07-17 03:16:32 | >> 표준 출력 및 오류를 로그 파일로 리디렉션 시작
+2025-07-17 03:16:32 | ============================================================
+2025-07-17 03:16:32 | >> [price_prediction8] 아파트 가격 예측 모델링 시작
+2025-07-17 03:16:32 | ============================================================
+2025-07-17 03:16:32 | >> [1단계 완료] 라이브러리, 경로, 로거 초기화 및 시드 고정 성공!
+2025-07-17 03:16:32 | >> [2단계 시작] 데이터 로드를 시작합니다.
+2025-07-17 03:16:34 | >> 원본 데이터 Shape - Train: (1110101, 32), Test: (9272, 32)
+2025-07-17 03:16:34 | >> Train/Test 병합 후 Shape: (1119373, 32)
+2025-07-17 03:16:34 | >> [2단계 완료] 데이터 로드 성공.
+2025-07-17 03:16:34 | >> [3단계 시작] 피처 엔지니어링을 시작합니다.
+2025-07-17 03:16:34 | >> 4.1. 날짜/기본/주기성 피처 생성 완료.
+2025-07-17 03:16:34 | >> 4.2. 교통 가중합 피처 생성 완료.
+2025-07-17 03:16:39 | >> 4.3. K-Means 군집화 피처 생성 완료.
+2025-07-17 03:16:40 | >> 4.4. [개선] 면적당 가격 기반 통계 피처 생성 완료.
+2025-07-17 03:16:40 | >> [추가] K-Means 군집 기반 통계 피처 생성 완료.
+2025-07-17 03:16:40 | >> 4.5. 상호작용 피처 생성 완료.
+2025-07-17 03:16:40 | >> 인코딩 대상 범주형 피처: ['계약일자', '자치구', '법정동', '브랜드등급']
+2025-07-17 03:16:40 | >> 결측치 처리 전, NA 개수: 7835611
+2025-07-17 03:16:41 | >> 결측치 처리 후, NA 개수: 0
+2025-07-17 03:16:41 | >> 최종 피처 수: 47
+2025-07-17 03:16:41 | >> 4.6. 범주형 인코딩 및 최종 데이터 분리 완료.
+2025-07-17 03:16:41 | >> [3단계 완료] 피처 엔지니어링 성공.
+2025-07-17 03:16:41 | >> [4단계 시작] 상위 35개 피처를 선택합니다.
+2025-07-17 03:16:41 | [LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.016654 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+2025-07-17 03:16:41 | [LightGBM] [Info] Total Bins 4531
+2025-07-17 03:16:41 | [LightGBM] [Info] Number of data points in the train set: 1110101, number of used features: 39
+2025-07-17 03:16:41 | [LightGBM] [Info] Start training from score 10.749784
+2025-07-17 03:16:42 | >> 피처 중요도 :
+2025-07-17 03:16:42 | feature  importance
+14              좌표Y         386
+32             건물나이         351
+13              좌표X         298
+0              계약일자         259
+6              전용면적         202
+44          면적_x_나이         190
+4               법정동         172
+12          아파트이름길이         112
+20   반경_1km_버스정류장_수         112
+24          성비(남/여)         111
+15          지하철최단거리          82
+19           버스최단거리          72
+23             총인구수          70
+3               자치구          66
+10               연식          61
+45           면적_x_층          58
+36             가중버스          55
+35            가중지하철          52
+46          강남_x_면적          46
+21  반경_500m_버스정류장_수          43
+28     loanrate_12m          31
+11            브랜드등급          31
+22  반경_300m_버스정류장_수          22
+16    반경_1km_지하철역_수          18
+5            강남3구여부          17
+9            사용허가여부          17
+37            아파트군집          13
+17   반경_500m_지하철역_수          13
+26      loanrate_3m           7
+27      loanrate_6m           7
+7                 층           6
+8            홈페이지유무           6
+1              계약년도           6
+25      loanrate_1m           5
+33          계약월_sin           2
+18   반경_300m_지하철역_수           1
+43    군집별_std_면적당가격           0
+2               계약월           0
+41     구별_std_면적당가격           0
+42     군집별_평균_면적당가격           0
+34          계약월_cos           0
+40      구별_평균_면적당가격           0
+39     동별_std_면적당가격           0
+38      동별_평균_면적당가격           0
+31              계약년           0
+29           isTest           0
+30           target           0
+2025-07-17 03:16:42 | >> 피처 선택 완료. 선택된 피처 수: 35
+2025-07-17 03:16:42 | >> 총 47개 중 35개 선택, 12개 제외.
+2025-07-17 03:16:42 | >> 선택된 피처 목록 : ['좌표Y', '건물나이', '좌표X', '계약일자', '전용면적', '면적_x_나이', '법정동', '아파트이름길이', '반경_1km_버스정류장_수', '성비(남/여)', '지하철최단거리', '버스최단거리', '총인구수', '자치구', '연식', '면적_x_층', '가중버스', '가중지하철', '강남_x_면적', '반경_500m_버스정류장_수', 'loanrate_12m', '브랜드등급', '반경_300m_버스정류장_수', '반경_1km_지하철역_수', '강남3구여부', '사용허가여부', '아파트군집', '반경_500m_지하철역_수', 'loanrate_3m', 'loanrate_6m', '층', '홈페이지유무', '계약년도', 'loanrate_1m', '계약월_sin']
+2025-07-17 03:16:42 | >> 제외된 피처 목록 : ['계약월', '반경_300m_지하철역_수', 'isTest', 'target', '계약년', '계약월_cos', '동별_평균_면적당가격', '동별_std_면적당가격', '구별_평균_면적당가격', '구별_std_면적당가격', '군집별_평균_면적당가격', '군집별_std_면적당가격']
+2025-07-17 03:16:42 | >> [4단계 완료] 피처 선택 성공.
+2025-07-17 03:16:42 | >> [5단계 시작] Optuna 최적화를 시작합니다. (탐색 횟수: 30)
+2025-07-17 03:16:42 | >> Optuna용 데이터 분할 - Train: (888080, 35), Validation: (222021, 35)
+2025-07-17 03:19:56 | Trial 0 | RMSE: 0.17435 | Params: {'learning_rate': 0.029067829529741518, 'feature_fraction': 0.9640595711096942, 'bagging_fraction': 0.999018444893542, 'bagging_freq': 3, 'num_leaves': 97, 'max_depth': 14, 'min_child_samples': 42}
+2025-07-17 03:22:25 | Trial 1 | RMSE: 0.17484 | Params: {'learning_rate': 0.03653121836052327, 'feature_fraction': 0.7614499913019118, 'bagging_fraction': 0.8265543257530417, 'bagging_freq': 6, 'num_leaves': 61, 'max_depth': 16, 'min_child_samples': 31}
+2025-07-17 03:24:57 | Trial 2 | RMSE: 0.17465 | Params: {'learning_rate': 0.0483796814199018, 'feature_fraction': 0.9735715124191411, 'bagging_fraction': 0.8186704013430309, 'bagging_freq': 3, 'num_leaves': 51, 'max_depth': 11, 'min_child_samples': 45}
+2025-07-17 03:27:14 | Trial 3 | RMSE: 0.18884 | Params: {'learning_rate': 0.019456124368945962, 'feature_fraction': 0.7433052438680264, 'bagging_fraction': 0.991160428526441, 'bagging_freq': 7, 'num_leaves': 44, 'max_depth': 13, 'min_child_samples': 39}
+2025-07-17 03:30:18 | Trial 4 | RMSE: 0.17020 | Params: {'learning_rate': 0.048167655602037014, 'feature_fraction': 0.9303397877600601, 'bagging_fraction': 0.8601072526680064, 'bagging_freq': 3, 'num_leaves': 91, 'max_depth': 14, 'min_child_samples': 32}
+2025-07-17 03:33:26 | Trial 5 | RMSE: 0.17410 | Params: {'learning_rate': 0.034761588685019384, 'feature_fraction': 0.7457969866073465, 'bagging_fraction': 0.9944432076315362, 'bagging_freq': 2, 'num_leaves': 82, 'max_depth': 12, 'min_child_samples': 15}
+2025-07-17 03:36:29 | Trial 6 | RMSE: 0.17149 | Params: {'learning_rate': 0.044997974434180486, 'feature_fraction': 0.8158665310731141, 'bagging_fraction': 0.8877615910054775, 'bagging_freq': 3, 'num_leaves': 89, 'max_depth': 18, 'min_child_samples': 22}
+2025-07-17 03:39:39 | Trial 7 | RMSE: 0.17081 | Params: {'learning_rate': 0.04346413842064046, 'feature_fraction': 0.7308172305589594, 'bagging_fraction': 0.8684890526717506, 'bagging_freq': 1, 'num_leaves': 94, 'max_depth': 10, 'min_child_samples': 20}
+2025-07-17 03:42:14 | Trial 8 | RMSE: 0.17437 | Params: {'learning_rate': 0.03451283442240108, 'feature_fraction': 0.9984207985837654, 'bagging_fraction': 0.894263716885272, 'bagging_freq': 5, 'num_leaves': 61, 'max_depth': 8, 'min_child_samples': 31}
+2025-07-17 03:43:59 | Trial 9 | RMSE: 0.19313 | Params: {'learning_rate': 0.012751325969870164, 'feature_fraction': 0.7981071312590817, 'bagging_fraction': 0.8138588055006862, 'bagging_freq': 5, 'num_leaves': 54, 'max_depth': 15, 'min_child_samples': 40}
+2025-07-17 03:46:20 | Trial 10 | RMSE: 0.17709 | Params: {'learning_rate': 0.02503811704310618, 'feature_fraction': 0.8996572782570044, 'bagging_fraction': 0.717778156308218, 'bagging_freq': 1, 'num_leaves': 74, 'max_depth': 20, 'min_child_samples': 25}
+2025-07-17 03:49:40 | Trial 11 | RMSE: 0.17122 | Params: {'learning_rate': 0.042410015742816026, 'feature_fraction': 0.8996975727501214, 'bagging_fraction': 0.9097900350838497, 'bagging_freq': 1, 'num_leaves': 97, 'max_depth': 9, 'min_child_samples': 10}
+2025-07-17 03:52:25 | Trial 12 | RMSE: 0.17227 | Params: {'learning_rate': 0.049663081657853936, 'feature_fraction': 0.705318388367435, 'bagging_fraction': 0.7747727342284187, 'bagging_freq': 2, 'num_leaves': 78, 'max_depth': 10, 'min_child_samples': 22}
+2025-07-17 03:54:56 | Trial 13 | RMSE: 0.18124 | Params: {'learning_rate': 0.03996693994023605, 'feature_fraction': 0.8852661175302031, 'bagging_fraction': 0.9343858386085473, 'bagging_freq': 4, 'num_leaves': 34, 'max_depth': 7, 'min_child_samples': 33}
+2025-07-17 03:57:59 | Trial 14 | RMSE: 0.17273 | Params: {'learning_rate': 0.04331222235409668, 'feature_fraction': 0.8525895600510014, 'bagging_fraction': 0.8641861566065369, 'bagging_freq': 2, 'num_leaves': 88, 'max_depth': 17, 'min_child_samples': 50}
+2025-07-17 04:00:44 | Trial 15 | RMSE: 0.17286 | Params: {'learning_rate': 0.04714824172267001, 'feature_fraction': 0.9319124344403064, 'bagging_fraction': 0.7707036429081363, 'bagging_freq': 1, 'num_leaves': 71, 'max_depth': 12, 'min_child_samples': 17}
+2025-07-17 04:03:51 | Trial 16 | RMSE: 0.17117 | Params: {'learning_rate': 0.03960652233406443, 'feature_fraction': 0.8346625246390126, 'bagging_fraction': 0.9297489096384417, 'bagging_freq': 4, 'num_leaves': 90, 'max_depth': 10, 'min_child_samples': 27}
+2025-07-17 04:06:43 | Trial 17 | RMSE: 0.17314 | Params: {'learning_rate': 0.03088049814264287, 'feature_fraction': 0.7087872282777324, 'bagging_fraction': 0.8534015527052033, 'bagging_freq': 2, 'num_leaves': 99, 'max_depth': 14, 'min_child_samples': 36}
+2025-07-17 04:09:32 | Trial 18 | RMSE: 0.17227 | Params: {'learning_rate': 0.0499948181245944, 'feature_fraction': 0.7827692677552479, 'bagging_fraction': 0.7800263300170568, 'bagging_freq': 3, 'num_leaves': 83, 'max_depth': 19, 'min_child_samples': 17}
+2025-07-17 04:11:50 | Trial 19 | RMSE: 0.17365 | Params: {'learning_rate': 0.0387245141707278, 'feature_fraction': 0.8620330368822111, 'bagging_fraction': 0.7237597382476976, 'bagging_freq': 5, 'num_leaves': 69, 'max_depth': 12, 'min_child_samples': 26}
+2025-07-17 04:15:12 | Trial 20 | RMSE: 0.17049 | Params: {'learning_rate': 0.044242182526806284, 'feature_fraction': 0.9182045122397636, 'bagging_fraction': 0.9371804943233704, 'bagging_freq': 1, 'num_leaves': 92, 'max_depth': 16, 'min_child_samples': 20}
+2025-07-17 04:18:39 | Trial 21 | RMSE: 0.17107 | Params: {'learning_rate': 0.0453039244125077, 'feature_fraction': 0.920556893207741, 'bagging_fraction': 0.9577775750964055, 'bagging_freq': 1, 'num_leaves': 91, 'max_depth': 16, 'min_child_samples': 21}
+2025-07-17 04:21:39 | Trial 22 | RMSE: 0.17127 | Params: {'learning_rate': 0.04342096209027195, 'feature_fraction': 0.944465859788324, 'bagging_fraction': 0.8761735419677401, 'bagging_freq': 2, 'num_leaves': 81, 'max_depth': 15, 'min_child_samples': 10}
+2025-07-17 04:25:07 | Trial 23 | RMSE: 0.17214 | Params: {'learning_rate': 0.04241711160148089, 'feature_fraction': 0.8750229389572685, 'bagging_fraction': 0.9590239970967519, 'bagging_freq': 1, 'num_leaves': 94, 'max_depth': 17, 'min_child_samples': 14}
+2025-07-17 04:28:16 | Trial 24 | RMSE: 0.16969 | Params: {'learning_rate': 0.04668913106423207, 'feature_fraction': 0.9147263289914053, 'bagging_fraction': 0.8397632204926007, 'bagging_freq': 2, 'num_leaves': 100, 'max_depth': 13, 'min_child_samples': 20}
+2025-07-17 04:31:12 | Trial 25 | RMSE: 0.17145 | Params: {'learning_rate': 0.047874577283615015, 'feature_fraction': 0.9183551381507381, 'bagging_fraction': 0.8387690968335307, 'bagging_freq': 3, 'num_leaves': 86, 'max_depth': 13, 'min_child_samples': 35}
+2025-07-17 04:33:51 | Trial 26 | RMSE: 0.17502 | Params: {'learning_rate': 0.0229730733742275, 'feature_fraction': 0.9517737269261749, 'bagging_fraction': 0.7920380965115112, 'bagging_freq': 2, 'num_leaves': 100, 'max_depth': 15, 'min_child_samples': 29}
+2025-07-17 04:35:45 | Trial 27 | RMSE: 0.18786 | Params: {'learning_rate': 0.01013061855591297, 'feature_fraction': 0.9879608542108507, 'bagging_fraction': 0.7417015804847097, 'bagging_freq': 4, 'num_leaves': 100, 'max_depth': 16, 'min_child_samples': 24}
+2025-07-17 04:38:51 | Trial 28 | RMSE: 0.16901 | Params: {'learning_rate': 0.046578191148038725, 'feature_fraction': 0.9045732222000997, 'bagging_fraction': 0.9125209891345069, 'bagging_freq': 2, 'num_leaves': 78, 'max_depth': 14, 'min_child_samples': 28}
+2025-07-17 04:41:32 | Trial 29 | RMSE: 0.17507 | Params: {'learning_rate': 0.0282820897277183, 'feature_fraction': 0.9666466931562906, 'bagging_fraction': 0.8974725950085295, 'bagging_freq': 3, 'num_leaves': 76, 'max_depth': 14, 'min_child_samples': 28}
+2025-07-17 04:41:32 | >> Optuna 최적화 완료. 총 30번의 trial 실행.
+2025-07-17 04:41:32 | >> 최적 RMSE: 0.16901
+2025-07-17 04:41:32 | >> 최적 하이퍼파라미터: {'learning_rate': 0.046578191148038725, 'feature_fraction': 0.9045732222000997, 'bagging_fraction': 0.9125209891345069, 'bagging_freq': 2, 'num_leaves': 78, 'max_depth': 14, 'min_child_samples': 28}
+2025-07-17 04:41:32 | >> 최적 파라미터를 '../../data/processed/params/best_params_7.json'에 저장했습니다.
+2025-07-17 04:41:32 | >> [5단계 완료] 하이퍼파라미터 최적화 성공.
+2025-07-17 04:41:32 | >> [6단계 시작] 최종 모델 학습 및 예측을 시작합니다. (CV 폴드 수: 4)
+2025-07-17 04:41:32 | >> 최종 학습 파라미터 (미세 조정 적용 및 GPU 적용): {'learning_rate': 0.03726255291843098, 'feature_fraction': 0.9045732222000997, 'bagging_fraction': 0.9125209891345069, 'bagging_freq': 2, 'num_leaves': 78, 'max_depth': 14, 'min_child_samples': 28, 'n_estimators': 3000, 'device': 'cuda', 'objective': 'regression_l1', 'metric': 'rmse', 'verbose': -1, 'n_jobs': -1, 'seed': 42}
+2025-07-17 04:41:32 | --- Fold 1/4 학습 시작 ---
+2025-07-17 04:41:32 | - Train Index: 0 ~ 222020 (size: 222021)
+2025-07-17 04:41:32 | - Validation Index: 222021 ~ 444040 (size: 222020)
+2025-07-17 04:43:55 | - Fold 1 RMSE: 0.18851
+2025-07-17 04:43:55 | - Best Iteration: 3000
+2025-07-17 04:43:55 | --- Fold 2/4 학습 시작 ---
+2025-07-17 04:43:55 | - Train Index: 0 ~ 444040 (size: 44404110
+2025-07-17 04:43:55 | - Validation Index: 444041 ~ 666060 (size: 222020)
+2025-07-17 04:46:34 | - Fold 2 RMSE: 0.12632
+2025-07-17 04:46:34 | - Best Iteration: 2408
+2025-07-17 04:46:34 | --- Fold 3/4 학습 시작 ---
+2025-07-17 04:46:34 | - Train Index: 0 ~ 666060 (size: 666061)
+2025-07-17 04:46:34 | - Validation Index: 666061 ~ 888080 (size: 222020)
+2025-07-17 04:50:34 | - Fold 3 RMSE: 0.08803
+2025-07-17 04:50:34 | - Best Iteration: 3000
+2025-07-17 04:50:34 | --- Fold 4/4 학습 시작 ---
+2025-07-17 04:50:34 | - Train Index: 0 ~ 888080 (size: 888081)
+2025-07-17 04:50:34 | - Validation Index: 888081 ~ 1110100 (size: 222020)
+2025-07-17 04:55:27 | - Fold 4 RMSE: 0.16786
+2025-07-17 04:55:27 | - Best Iteration: 3000
+2025-07-17 04:55:27 | >> CV 학습 결과 요약:
+2025-07-17 04:55:27 | - 각 Fold별 RMSE: [0.18851, 0.12632, 0.08803, 0.16786]
+2025-07-17 04:55:27 | - 평균 Fold RMSE: 0.14268 (±0.03869)
+2025-07-17 04:55:27 | - 전체 OOF RMSE: 0.14783
+2025-07-17 04:55:27 | >> [6단계 완료] 최종 모델 학습 성공.
+2025-07-17 04:55:27 | >> [7단계 시작] 제출 파일 생성 및 모델 저장을 시작합니다.
+2025-07-17 04:55:27 | >> 제출 파일 '../../data/processed/submissions/price_prediction_7_submission_20250717_031632.csv' 생성이 완료되었습니다.
+2025-07-17 04:55:27 | >> 제출 파일 미리보기 (상위 5개):
+2025-07-17 04:55:27 | target
+0  189348.916124
+1  337669.307341
+2  307742.894087
+3  270454.388163
+4  228966.780106
+2025-07-17 04:55:27 | >> [오류] 7단계(제출 및 저장) 중 문제 발생: name 'final_model' is not defined
+2025-07-17 04:55:27 | ============================================================
+2025-07-17 04:55:27 | 🎉 모든 프로세스가 성공적으로 종료되었습니다.
+2025-07-17 04:55:27 | ============================================================

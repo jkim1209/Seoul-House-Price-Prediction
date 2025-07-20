@@ -54,7 +54,7 @@ df_cleaned = df.copy()
 
 
 # 이미지 저장경로 생성
-image_save_dir = '../../docs/image/Model_LASSO'
+image_save_dir = '../../images/jangwon/Model_LASSO'
 os.makedirs(image_save_dir, exist_ok=True)
 
 # 모델 저장경로 생성
@@ -62,7 +62,7 @@ model_save_dir = '../../model'
 os.makedirs(model_save_dir, exist_ok=True)
 
 # 예측값 저장경로 생성
-prediction_save_dir = '../../data/processed/submissions'
+prediction_save_dir = '../../data/processed/submissions/jangwon'
 os.makedirs(prediction_save_dir, exist_ok=True)
 
 # LASSO에 TimeSeriesSplit적용

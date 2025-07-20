@@ -24,7 +24,7 @@ for font in krfont:
 mpl.rcParams['axes.unicode_minus'] = False
 
 # 이미지 저장경로 생성
-save_dir = '../../docs/image/Basic'
+save_dir = '../../images/jangwon/Basic'
 os.makedirs(save_dir, exist_ok=True)
 
 

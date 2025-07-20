@@ -1,0 +1,157 @@
+2025-07-16 01:57:11 | ==================================================
+2025-07-16 01:57:11 | >> 아파트 가격 예측 모델링 시작
+2025-07-16 01:57:11 | >> [1-3단계 완료] 라이브러리, 경로, 로거 초기화 성공
+2025-07-16 01:57:11 | >> [4단계 시작] 데이터 로드 중...
+2025-07-16 01:57:12 | >> 데이터 로드 및 병합 완료.
+2025-07-16 01:57:12 | >> [5-1단계 시작] Target 변수 로그 변환을 시작합니다...
+2025-07-16 01:57:13 | >> Target 변수 로그 변환 완료.
+2025-07-16 01:57:13 | >> [5-2단계 시작] 고급 피처 엔지니어링 및 데이터 분리를 시작합니다...
+2025-07-16 01:57:13 | >> 1. Train/Test 데이터 분리 완료.
+2025-07-16 01:57:13 | >> 2. 시간 관련 피처 생성 완료.
+2025-07-16 01:57:13 | >> 3. 면적당 가격 관련 피처 생성 및 병합 완료.
+2025-07-16 01:57:13 | >> 4. 상호작용 특성 생성 완료.
+2025-07-16 01:57:13 | >> 5. 테스트 데이터 결측치 처리 완료.
+2025-07-16 01:57:14 | >> 6. 피처/타겟 정의 완료.
+2025-07-16 01:57:14 | >> 7. 범주형 피처 Label Encoding 완료.
+2025-07-16 01:57:14 | >> [5단계 완료] 모든 피처 엔지니어링 및 데이터 분리 성공.
+2025-07-16 01:57:14 | >> [6단계 시작] 피처 선택을 위한 사전 모델 학습을 시작합니다...
+2025-07-16 01:57:18 | >> 피처 선택 완료. 제외된 피처 개수: 10개
+2025-07-16 01:57:18 | >> 최종 학습에 사용될 피처 개수: 28개
+2025-07-16 01:57:18 | >> [6단계 완료] 피처 선택 성공.
+[I 2025-07-16 01:57:18,683] A new study created in memory with name: no-name-952fbc25-8f74-441a-9847-307f416bf562
+2025-07-16 01:57:18 | >> [7단계 시작] Optuna로 하이퍼파라미터 최적화를 시작합니다...
+[I 2025-07-16 02:15:47,235] Trial 0 finished with value: 0.09543521301789627 and parameters: {'learning_rate': 0.030500446227644085, 'num_leaves': 134, 'max_depth': 23, 'subsample': 0.9497086681928294, 'colsample_bytree': 0.9383430577854994, 'lambda_l1': 3.8655527717661093, 'lambda_l2': 0.7929069278424327}. Best is trial 0 with value: 0.09543521301789627.
+[I 2025-07-16 02:28:30,648] Trial 1 finished with value: 0.12012046029397386 and parameters: {'learning_rate': 0.0271765974007228, 'num_leaves': 40, 'max_depth': 25, 'subsample': 0.8600102841466462, 'colsample_bytree': 0.923670706486452, 'lambda_l1': 0.0002276832767407633, 'lambda_l2': 8.995896314333048e-05}. Best is trial 0 with value: 0.09543521301789627.
+[I 2025-07-16 02:42:33,907] Trial 2 finished with value: 0.10792409287634883 and parameters: {'learning_rate': 0.04977508218851048, 'num_leaves': 39, 'max_depth': 11, 'subsample': 0.7090726040027178, 'colsample_bytree': 0.7371059220075789, 'lambda_l1': 6.589703151742541e-05, 'lambda_l2': 0.0622580219267443}. Best is trial 0 with value: 0.09543521301789627.
+[I 2025-07-16 02:58:28,617] Trial 3 finished with value: 0.10196606307184689 and parameters: {'learning_rate': 0.03213565881238162, 'num_leaves': 85, 'max_depth': 19, 'subsample': 0.7341688344597567, 'colsample_bytree': 0.9081437029293545, 'lambda_l1': 0.004476926791520387, 'lambda_l2': 0.28710610643579143}. Best is trial 0 with value: 0.09543521301789627.
+[I 2025-07-16 03:13:21,364] Trial 4 finished with value: 0.10413208530791887 and parameters: {'learning_rate': 0.0420673801504842, 'num_leaves': 57, 'max_depth': 19, 'subsample': 0.9356751935346047, 'colsample_bytree': 0.9464728301506047, 'lambda_l1': 1.0222619318438684e-05, 'lambda_l2': 3.183521305151399e-05}. Best is trial 0 with value: 0.09543521301789627.
+[I 2025-07-16 03:33:22,632] Trial 5 finished with value: 0.09030750285500058 and parameters: {'learning_rate': 0.044467154943652096, 'num_leaves': 136, 'max_depth': 23, 'subsample': 0.8666049401070772, 'colsample_bytree': 0.9259067701883383, 'lambda_l1': 8.320362140878745e-05, 'lambda_l2': 0.006343585824492134}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 03:50:24,894] Trial 6 finished with value: 0.10235733450699422 and parameters: {'learning_rate': 0.021159556095216477, 'num_leaves': 128, 'max_depth': 13, 'subsample': 0.7999247159054514, 'colsample_bytree': 0.9026164912870813, 'lambda_l1': 0.2595360902457639, 'lambda_l2': 0.0021265533110929502}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 04:05:27,147] Trial 7 finished with value: 0.1057113805074327 and parameters: {'learning_rate': 0.025543057273473363, 'num_leaves': 86, 'max_depth': 15, 'subsample': 0.7050523201156234, 'colsample_bytree': 0.8047747899210339, 'lambda_l1': 3.0978538125825303, 'lambda_l2': 0.0008083533931589933}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 04:19:10,185] Trial 8 finished with value: 0.11119112034062906 and parameters: {'learning_rate': 0.043127003320492574, 'num_leaves': 38, 'max_depth': 23, 'subsample': 0.8544460946094842, 'colsample_bytree': 0.9659143753071386, 'lambda_l1': 0.0032530653200710537, 'lambda_l2': 0.9190293445149968}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 04:33:07,651] Trial 9 finished with value: 0.10791624405500277 and parameters: {'learning_rate': 0.04255466490848486, 'num_leaves': 45, 'max_depth': 14, 'subsample': 0.7026736476295585, 'colsample_bytree': 0.7745296859623303, 'lambda_l1': 1.8847644502932877, 'lambda_l2': 0.11681030233031019}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 04:48:19,398] Trial 10 finished with value: 0.11330270535921241 and parameters: {'learning_rate': 0.010567735671961283, 'num_leaves': 146, 'max_depth': 9, 'subsample': 0.9985878718953581, 'colsample_bytree': 0.8504843930788155, 'lambda_l1': 0.05468516722218292, 'lambda_l2': 0.012028836963817844}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 05:06:29,962] Trial 11 finished with value: 0.09595414092306381 and parameters: {'learning_rate': 0.0343171998700707, 'num_leaves': 119, 'max_depth': 21, 'subsample': 0.9244486128630499, 'colsample_bytree': 0.9920465538525789, 'lambda_l1': 0.0004292827948107049, 'lambda_l2': 8.459928316652373}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 05:21:21,091] Trial 12 finished with value: 0.11087050732722263 and parameters: {'learning_rate': 0.01543512090884602, 'num_leaves': 112, 'max_depth': 25, 'subsample': 0.9170953785185474, 'colsample_bytree': 0.8678484801283906, 'lambda_l1': 0.037927687673443886, 'lambda_l2': 5.124749660542965}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 05:41:08,770] Trial 13 finished with value: 0.09161533334633873 and parameters: {'learning_rate': 0.035903286656241686, 'num_leaves': 150, 'max_depth': 20, 'subsample': 0.9727974646815126, 'colsample_bytree': 0.9918921572047033, 'lambda_l1': 8.901447342313432, 'lambda_l2': 0.011929340030443802}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 06:01:23,422] Trial 14 finished with value: 0.09197551640219154 and parameters: {'learning_rate': 0.03688886223927313, 'num_leaves': 147, 'max_depth': 18, 'subsample': 0.802876168059387, 'colsample_bytree': 0.9931478891030032, 'lambda_l1': 0.2890166900539985, 'lambda_l2': 0.008552528641174204}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 06:19:38,301] Trial 15 finished with value: 0.09239846130114375 and parameters: {'learning_rate': 0.04972451566232889, 'num_leaves': 104, 'max_depth': 21, 'subsample': 0.9896317135733266, 'colsample_bytree': 0.8817255127541554, 'lambda_l1': 1.3061496585838321e-05, 'lambda_l2': 0.0016958520287025814}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 06:39:14,406] Trial 16 finished with value: 0.0925479463473844 and parameters: {'learning_rate': 0.03750965998995711, 'num_leaves': 136, 'max_depth': 17, 'subsample': 0.8980729642121403, 'colsample_bytree': 0.9645023181168381, 'lambda_l1': 0.0025698999357052048, 'lambda_l2': 0.0002545606423035424}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 06:57:06,685] Trial 17 finished with value: 0.09355436332631648 and parameters: {'learning_rate': 0.04543958149492085, 'num_leaves': 102, 'max_depth': 21, 'subsample': 0.7795726947634286, 'colsample_bytree': 0.8201952620900181, 'lambda_l1': 0.00043874687511858925, 'lambda_l2': 0.01924827968578781}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 07:12:13,681] Trial 18 finished with value: 0.10122875973064879 and parameters: {'learning_rate': 0.038107160704635344, 'num_leaves': 73, 'max_depth': 22, 'subsample': 0.8762555136413129, 'colsample_bytree': 0.7051403867851139, 'lambda_l1': 0.02176956042310205, 'lambda_l2': 0.0068111127454249494}. Best is trial 5 with value: 0.09030750285500058.
+[I 2025-07-16 07:32:04,475] Trial 19 finished with value: 0.08928679412886863 and parameters: {'learning_rate': 0.04552644898504375, 'num_leaves': 148, 'max_depth': 16, 'subsample': 0.9496338786876218, 'colsample_bytree': 0.9743654033592622, 'lambda_l1': 0.31530673959591266, 'lambda_l2': 0.00037532302299416777}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 07:50:44,321] Trial 20 finished with value: 0.09097757590915055 and parameters: {'learning_rate': 0.046506123437466566, 'num_leaves': 125, 'max_depth': 7, 'subsample': 0.817256769268802, 'colsample_bytree': 0.8876476790191885, 'lambda_l1': 0.27167887551126846, 'lambda_l2': 0.00028589340725788514}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 08:09:23,706] Trial 21 finished with value: 0.09039110180284347 and parameters: {'learning_rate': 0.04751206572052117, 'num_leaves': 125, 'max_depth': 7, 'subsample': 0.8250710165499059, 'colsample_bytree': 0.887736685421015, 'lambda_l1': 0.34586873700719206, 'lambda_l2': 0.00039525472460557297}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 08:28:44,515] Trial 22 finished with value: 0.08952727099954265 and parameters: {'learning_rate': 0.04643830807741123, 'num_leaves': 138, 'max_depth': 12, 'subsample': 0.827345308962136, 'colsample_bytree': 0.9579825356695989, 'lambda_l1': 0.7440833950492447, 'lambda_l2': 1.2524629994749525e-05}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 08:47:41,731] Trial 23 finished with value: 0.09132329342310311 and parameters: {'learning_rate': 0.04031775418851117, 'num_leaves': 137, 'max_depth': 12, 'subsample': 0.888806018544413, 'colsample_bytree': 0.9657163482833492, 'lambda_l1': 1.1971871116576351, 'lambda_l2': 1.921824007970639e-05}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 09:05:37,707] Trial 24 finished with value: 0.09255623441257932 and parameters: {'learning_rate': 0.045000806494711595, 'num_leaves': 113, 'max_depth': 15, 'subsample': 0.7543458483796281, 'colsample_bytree': 0.9404848435666057, 'lambda_l1': 0.10746636534064893, 'lambda_l2': 6.892608568482056e-05}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 09:24:49,494] Trial 25 finished with value: 0.09092820006871323 and parameters: {'learning_rate': 0.041134340475341126, 'num_leaves': 140, 'max_depth': 10, 'subsample': 0.8323616138477218, 'colsample_bytree': 0.9157389577521766, 'lambda_l1': 0.010171566582702886, 'lambda_l2': 1.1621878632286345e-05}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 09:57:02,230] Trial 26 finished with value: 0.09397826945728359 and parameters: {'learning_rate': 0.046714953947171414, 'num_leaves': 98, 'max_depth': 17, 'subsample': 0.9593997634449434, 'colsample_bytree': 0.9686344545516088, 'lambda_l1': 0.8611259992907002, 'lambda_l2': 5.781026636261393e-05}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 10:50:15,319] Trial 27 finished with value: 0.09072390733611231 and parameters: {'learning_rate': 0.03937914291295471, 'num_leaves': 150, 'max_depth': 16, 'subsample': 0.9076612520723312, 'colsample_bytree': 0.9314376227474426, 'lambda_l1': 5.1010017696764736e-05, 'lambda_l2': 0.002830546897691627}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 11:35:04,879] Trial 28 finished with value: 0.09454917233136886 and parameters: {'learning_rate': 0.03394846667726193, 'num_leaves': 130, 'max_depth': 14, 'subsample': 0.7745027690999478, 'colsample_bytree': 0.9996577224429183, 'lambda_l1': 0.09510036180111979, 'lambda_l2': 0.0007130501687554745}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 11:54:30,450] Trial 29 finished with value: 0.09031568944651583 and parameters: {'learning_rate': 0.04403709167880077, 'num_leaves': 140, 'max_depth': 9, 'subsample': 0.8693899981160523, 'colsample_bytree': 0.9556651152901626, 'lambda_l1': 0.0011847195638637444, 'lambda_l2': 0.000146024850082612}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 12:12:53,445] Trial 30 finished with value: 0.09825512683991604 and parameters: {'learning_rate': 0.02900995934793218, 'num_leaves': 117, 'max_depth': 12, 'subsample': 0.9424413375376997, 'colsample_bytree': 0.9344968085436272, 'lambda_l1': 8.78901959792823, 'lambda_l2': 0.029917986140549732}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 12:32:19,802] Trial 31 finished with value: 0.09018739712290622 and parameters: {'learning_rate': 0.04379881933193083, 'num_leaves': 141, 'max_depth': 9, 'subsample': 0.8747320911318264, 'colsample_bytree': 0.9526457566798175, 'lambda_l1': 0.001407480517589238, 'lambda_l2': 0.00013560888497198654}. Best is trial 19 with value: 0.08928679412886863.
+[I 2025-07-16 13:39:11,986] Trial 32 finished with value: 0.08898068431528895 and parameters: {'learning_rate': 0.04884561417489149, 'num_leaves': 142, 'max_depth': 9, 'subsample': 0.8468964400671314, 'colsample_bytree': 0.9789437347253157, 'lambda_l1': 6.361678373837863e-05, 'lambda_l2': 3.6561709077453794e-05}. Best is trial 32 with value: 0.08898068431528895.
+[I 2025-07-16 14:56:56,810] Trial 33 finished with value: 0.08895200452999386 and parameters: {'learning_rate': 0.04992195342270459, 'num_leaves': 142, 'max_depth': 9, 'subsample': 0.8426510011091826, 'colsample_bytree': 0.9821596857385924, 'lambda_l1': 0.00017496911759044582, 'lambda_l2': 3.81041740573386e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 16:11:30,040] Trial 34 finished with value: 0.08959375358156327 and parameters: {'learning_rate': 0.04966482075959633, 'num_leaves': 130, 'max_depth': 11, 'subsample': 0.8409118293284442, 'colsample_bytree': 0.9784401777663612, 'lambda_l1': 3.0063662099252953e-05, 'lambda_l2': 3.0917818505958475e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 17:02:22,775] Trial 35 finished with value: 0.09812638550244435 and parameters: {'learning_rate': 0.047884424143353706, 'num_leaves': 71, 'max_depth': 8, 'subsample': 0.808985049977972, 'colsample_bytree': 0.980780873137413, 'lambda_l1': 0.00023799526379598857, 'lambda_l2': 1.1162508148072015e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 17:44:24,891] Trial 36 finished with value: 0.0890603100015083 and parameters: {'learning_rate': 0.04858811794369711, 'num_leaves': 142, 'max_depth': 11, 'subsample': 0.84387513496425, 'colsample_bytree': 0.9495786196384041, 'lambda_l1': 0.00018256034584323655, 'lambda_l2': 4.542825796965485e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 18:06:10,270] Trial 37 finished with value: 0.09038108546157256 and parameters: {'learning_rate': 0.049401250805331774, 'num_leaves': 122, 'max_depth': 10, 'subsample': 0.8531806906538948, 'colsample_bytree': 0.9131096576591294, 'lambda_l1': 0.00010836614013878031, 'lambda_l2': 4.623673712848474e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 18:26:56,204] Trial 38 finished with value: 0.0978395801612739 and parameters: {'learning_rate': 0.024548246321170156, 'num_leaves': 144, 'max_depth': 8, 'subsample': 0.8406894231507063, 'colsample_bytree': 0.9413885896828101, 'lambda_l1': 3.739520015067083e-05, 'lambda_l2': 0.00011483510546235473}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 18:46:16,353] Trial 39 finished with value: 0.09010670565161258 and parameters: {'learning_rate': 0.04819192200328052, 'num_leaves': 132, 'max_depth': 11, 'subsample': 0.7826913140411443, 'colsample_bytree': 0.9733641803762054, 'lambda_l1': 0.00025985037460777357, 'lambda_l2': 2.74183606496833e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 19:10:00,974] Trial 40 finished with value: 0.09413332844164313 and parameters: {'learning_rate': 0.0412855097754221, 'num_leaves': 110, 'max_depth': 13, 'subsample': 0.7918246141715912, 'colsample_bytree': 0.9831943209587849, 'lambda_l1': 0.00012409186841940822, 'lambda_l2': 0.000958678504837704}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 19:31:55,849] Trial 41 finished with value: 0.08994412852253227 and parameters: {'learning_rate': 0.04635367182881105, 'num_leaves': 134, 'max_depth': 10, 'subsample': 0.8230678475610339, 'colsample_bytree': 0.9549044694299338, 'lambda_l1': 1.9261644826351746e-05, 'lambda_l2': 1.7509263630974792e-05}. Best is trial 33 with value: 0.08895200452999386.
+[I 2025-07-16 19:55:12,005] Trial 42 finished with value: 0.0888516703030373 and parameters: {'learning_rate': 0.049908772025853705, 'num_leaves': 144, 'max_depth': 12, 'subsample': 0.887624521798714, 'colsample_bytree': 0.9518252076361221, 'lambda_l1': 0.000714964894330009, 'lambda_l2': 4.54225392109952e-05}. Best is trial 42 with value: 0.0888516703030373.
+[I 2025-07-16 20:18:08,347] Trial 43 finished with value: 0.08880077578304693 and parameters: {'learning_rate': 0.04845469194234621, 'num_leaves': 144, 'max_depth': 8, 'subsample': 0.8938403306460838, 'colsample_bytree': 0.9052149751115536, 'lambda_l1': 0.0006942733015019326, 'lambda_l2': 7.884614491006601e-05}. Best is trial 43 with value: 0.08880077578304693.
+[I 2025-07-16 20:41:05,775] Trial 44 finished with value: 0.08901792782020441 and parameters: {'learning_rate': 0.04858543187395533, 'num_leaves': 143, 'max_depth': 8, 'subsample': 0.8814479875283774, 'colsample_bytree': 0.8972325291356222, 'lambda_l1': 0.0006312438720784379, 'lambda_l2': 5.074142876297644e-05}. Best is trial 43 with value: 0.08880077578304693.
+[I 2025-07-16 21:02:21,402] Trial 45 finished with value: 0.09165063484203892 and parameters: {'learning_rate': 0.042875387870650386, 'num_leaves': 128, 'max_depth': 8, 'subsample': 0.8860352333118969, 'colsample_bytree': 0.8990180814583177, 'lambda_l1': 0.0006831530645221713, 'lambda_l2': 9.22342445320458e-05}. Best is trial 43 with value: 0.08880077578304693.
+[I 2025-07-16 21:16:51,627] Trial 46 finished with value: 0.11249608798108116 and parameters: {'learning_rate': 0.04993185876390069, 'num_leaves': 31, 'max_depth': 7, 'subsample': 0.9241875756740352, 'colsample_bytree': 0.860958203682235, 'lambda_l1': 0.006151849736340877, 'lambda_l2': 0.00019624888368269713}. Best is trial 43 with value: 0.08880077578304693.
+[I 2025-07-16 21:37:05,633] Trial 47 finished with value: 0.09008754273971507 and parameters: {'learning_rate': 0.0435710827588557, 'num_leaves': 144, 'max_depth': 9, 'subsample': 0.9097810400540643, 'colsample_bytree': 0.8276818927603797, 'lambda_l1': 0.0008558540038887455, 'lambda_l2': 2.799603380571529e-05}. Best is trial 43 with value: 0.08880077578304693.
+[I 2025-07-16 21:53:27,534] Trial 48 finished with value: 0.10434473220191284 and parameters: {'learning_rate': 0.018071491333016575, 'num_leaves': 133, 'max_depth': 8, 'subsample': 0.8598381665781007, 'colsample_bytree': 0.9203247737107366, 'lambda_l1': 0.002161667557670254, 'lambda_l2': 6.491094763161994e-05}. Best is trial 43 with value: 0.08880077578304693.
+[I 2025-07-16 22:12:24,757] Trial 49 finished with value: 0.09094907472151433 and parameters: {'learning_rate': 0.04775833848944746, 'num_leaves': 122, 'max_depth': 10, 'subsample': 0.8937448164669705, 'colsample_bytree': 0.9023655603001166, 'lambda_l1': 0.000415665051139899, 'lambda_l2': 0.6903842012107089}. Best is trial 43 with value: 0.08880077578304693.
+2025-07-16 22:12:24 | >> Optuna 탐색 완료. 최적 파라미터: {'learning_rate': 0.04845469194234621, 'num_leaves': 144, 'max_depth': 8, 'subsample': 0.8938403306460838, 'colsample_bytree': 0.9052149751115536, 'lambda_l1': 0.0006942733015019326, 'lambda_l2': 7.884614491006601e-05, 'objective': 'regression_l1', 'metric': 'rmse', 'n_estimators': 2000, 'verbosity': -1, 'seed': 42}
+2025-07-16 22:12:24 | >> [7단계 완료] 하이퍼파라미터 최적화 성공.
+2025-07-16 22:12:24 | >> 표준 출력 및 오류를 로그 파일로 리디렉션 시작
+2025-07-16 22:12:24 | >> [8단계 시작] 최적 파라미터로 Stratified K-Fold 교차 검증 및 모델 학습을 시작합니다...
+2025-07-16 22:12:24 | >> K-Fold 설정 완료. 5-Fold 교차 검증을 시작합니다.
+2025-07-16 22:12:24 | --- [Fold 1/5] 학습 시작 ---
+2025-07-16 22:13:00 | ✅ Fold 1 Log-RMSE: 0.0904
+2025-07-16 22:13:00 | --- [Fold 2/5] 학습 시작 ---
+2025-07-16 22:13:36 | ✅ Fold 2 Log-RMSE: 0.0904
+2025-07-16 22:13:36 | --- [Fold 3/5] 학습 시작 ---
+2025-07-16 22:14:12 | ✅ Fold 3 Log-RMSE: 0.0925
+2025-07-16 22:14:12 | --- [Fold 4/5] 학습 시작 ---
+2025-07-16 22:14:58 | ✅ Fold 4 Log-RMSE: 0.0906
+2025-07-16 22:14:58 | --- [Fold 5/5] 학습 시작 ---
+2025-07-16 22:15:33 | ✅ Fold 5 Log-RMSE: 0.0917
+2025-07-16 22:15:34 | -------------------------------------------
+2025-07-16 22:15:34 | ✅ 최종 CV 평균 Log-RMSE: 0.0911
+2025-07-16 22:15:34 | -------------------------------------------
+2025-07-16 22:15:34 | >> [8단계 완료] 모든 모델 학습 및 평가 성공.
+2025-07-16 22:15:34 | >> 표준 출력 및 오류 리디렉션 중지
+2025-07-16 22:15:34 | >> [9단계 시작] 모델 결과 시각화 및 분석을 시작합니다...
+2025-07-16 22:15:34 | >> 1. 피처 중요도 시각화 중...
+2025-07-16 22:15:34 | >> 피처 중요도 시각화 완료.
+2025-07-16 22:15:34 | >> 2. 실제 값 vs OOF 예측 값 비교 시각화 중...
+2025-07-16 22:15:35 | >> 실제 값 vs OOF 예측 값 비교 시각화 완료.
+2025-07-16 22:15:35 | >> 3. 잔차 분포 확인 시각화 중...
+2025-07-16 22:15:37 | >> 잔차 분포 확인 시각화 완료.
+2025-07-16 22:15:37 | >> 4. 학습/테스트 데이터 예측 분포 비교 시각화 중...
+2025-07-16 22:15:39 | >> 학습/테스트 데이터 예측 분포 비교 시각화 완료.
+2025-07-16 22:15:39 | >> 5. SHAP 분석 시작 (계산에 시간이 다소 소요될 수 있습니다)...
+2025-07-16 22:15:45 | >> SHAP 요약 플롯 생성 중...
+2025-07-16 22:15:45 | >> SHAP 분석 완료.
+2025-07-16 22:15:45 | >> [9단계 완료] 시각화 및 분석 완료.
+2025-07-16 22:15:45 | >> [10단계 시작] 최종 제출 파일 생성을 시작합니다...
+2025-07-16 22:15:45 | >> 전체 훈련 데이터로 최종 모델 학습 시작...
+2025-07-16 22:16:19 | >> 최종 모델 학습 완료.
+2025-07-16 22:16:19 | >> 모델 저장 완료: ../../model/price_prediction_4_model.pkl
+2025-07-16 22:16:19 | >> 'target' 컬럼만 포함된 제출 파일을 생성합니다.
+2025-07-16 22:16:19 | >> 제출 파일 생성 완료: ../../data/processed/submissions/price_prediction_4_submission.csv
+2025-07-16 22:16:19 | >> 모델링 종료
+2025-07-16 22:16:19 | ==================================================
+2025-07-16 22:22:33 | >> 시각화 결과가 저장될 경로: ../../images/price_prediction_4
+2025-07-16 22:24:50 | >> 시각화 결과가 저장될 경로: ../../images/price_prediction_4
+2025-07-16 22:24:50 | >> [9단계 시작] 모델 결과 시각화 및 분석 파일 저장을 시작합니다...
+2025-07-16 22:24:50 | >> 1. 피처 중요도 이미지 저장 중...
+2025-07-16 22:24:50 | >> 피처 중요도 이미지 저장 완료.
+2025-07-16 22:24:50 | >> 2. 실제 값 vs OOF 예측 값 비교 이미지 저장 중...
+2025-07-16 22:24:52 | >> 실제 값 vs OOF 예측 값 비교 이미지 저장 완료.
+2025-07-16 22:24:52 | >> 3. 잔차 분포 확인 이미지 저장 중...
+2025-07-16 22:24:54 | >> 잔차 분포 확인 이미지 저장 완료.
+2025-07-16 22:24:54 | >> 4. OOF 예측과 테스트 예측의 분포 비교 이미지 저장 중...
+2025-07-16 22:24:56 | >> OOF 예측과 테스트 예측의 분포 비교 이미지 저장 완료.
+2025-07-16 22:24:56 | >> 5. 주요 피처 간 상관관계 히트맵 이미지 저장 중...
+2025-07-16 22:24:57 | >> 피처 간 상관관계 히트맵 이미지 저장 완료.
+2025-07-16 22:24:57 | >> 6. 잔차 vs 예측값 플롯 이미지 저장 중...
+2025-07-16 22:24:59 | >> 잔차 vs 예측값 플롯 이미지 저장 완료.
+2025-07-16 22:24:59 | >> 7. 주요 피처와 타겟 변수 관계 이미지 저장 중...
+2025-07-16 22:25:00 | >> 주요 피처와 타겟 변수 관계 이미지 저장 완료.
+2025-07-16 22:25:00 | >> 8. SHAP 요약 플롯 분석 및 저장 중...
+2025-07-16 22:25:10 | >> SHAP 요약 플롯 저장 완료.
+2025-07-16 22:25:10 | >> 9. SHAP 의존성 플롯 저장 중...
+2025-07-16 22:25:11 | >> SHAP 의존성 플롯 저장 완료.
+2025-07-16 22:25:11 | >> 10. 학습 곡선 이미지 저장 중...
+2025-07-16 22:25:11 | >> [오류] 시각화 및 분석 파일 저장 중 문제가 발생했습니다: lightgbm.sklearn.LGBMRegressor() got multiple values for keyword argument 'verbosity'
+2025-07-16 22:26:50 | >> 시각화 결과가 저장될 경로: ../../images/price_prediction_4
+2025-07-16 22:26:50 | >> [9단계 시작] 모델 결과 시각화 및 분석 파일 저장을 시작합니다...
+2025-07-16 22:26:50 | >> 1. 피처 중요도 이미지 저장 중...
+2025-07-16 22:26:50 | >> 피처 중요도 이미지 저장 완료.
+2025-07-16 22:26:50 | >> 2. 실제 값 vs OOF 예측 값 비교 이미지 저장 중...
+2025-07-16 22:26:52 | >> 실제 값 vs OOF 예측 값 비교 이미지 저장 완료.
+2025-07-16 22:26:52 | >> 3. 잔차 분포 확인 이미지 저장 중...
+2025-07-16 22:26:54 | >> 잔차 분포 확인 이미지 저장 완료.
+2025-07-16 22:26:54 | >> 4. OOF 예측과 테스트 예측의 분포 비교 이미지 저장 중...
+2025-07-16 22:26:56 | >> OOF 예측과 테스트 예측의 분포 비교 이미지 저장 완료.
+2025-07-16 22:26:56 | >> 5. 주요 피처 간 상관관계 히트맵 이미지 저장 중...
+2025-07-16 22:26:57 | >> 피처 간 상관관계 히트맵 이미지 저장 완료.
+2025-07-16 22:26:57 | >> 6. 잔차 vs 예측값 플롯 이미지 저장 중...
+2025-07-16 22:26:59 | >> 잔차 vs 예측값 플롯 이미지 저장 완료.
+2025-07-16 22:26:59 | >> 7. 주요 피처와 타겟 변수 관계 이미지 저장 중...
+2025-07-16 22:27:00 | >> 주요 피처와 타겟 변수 관계 이미지 저장 완료.
+2025-07-16 22:27:00 | >> 8. SHAP 요약 플롯 분석 및 저장 중...
+2025-07-16 22:27:10 | >> SHAP 요약 플롯 저장 완료.
+2025-07-16 22:27:10 | >> 9. SHAP 의존성 플롯 저장 중...
+2025-07-16 22:27:11 | >> SHAP 의존성 플롯 저장 완료.
+2025-07-16 22:27:11 | >> 10. 학습 곡선 이미지 저장 중...

@@ -1,0 +1,294 @@
+2025-07-15 20:28:29 | ==================================================
+2025-07-15 20:28:29 | >> 아파트 가격 예측 모델링 시작
+2025-07-15 20:28:29 | >> 정제된 Train/Test 데이터를 로드합니다...
+2025-07-15 20:28:31 | >> Train/Test 데이터 로드 완료.
+2025-07-15 20:28:31 | >> 데이터 로드 및 병합 완료.
+2025-07-15 20:28:31 | >> EDA: 데이터 정보 및 통계 요약을 시작합니다...
+2025-07-15 20:28:31 | >> EDA: 데이터 정보 및 통계 요약
+2025-07-15 20:28:31 | 데이터 크기: (1119373, 30)
+2025-07-15 20:28:31 | 컬럼 목록: ['계약일자', '계약년월', '계약년도', '계약월', '자치구', '법정동', '강남3구여부', '전용면적', '층', '홈페이지유무', '사용허가여부', '연식', '브랜드등급', '아파트이름길이', '지하철최단거리', '반경_1km_지하철역_수', '반경_500m_지하철역_수', '반경_300m_지하철역_수', '버스최단거리', '반경_1km_버스정류장_수', '반경_500m_버스정류장_수', '반경_300m_버스정류장_수', '총인구수', '성비(남/여)', 'loanrate_1m', 'loanrate_3m', 'loanrate_6m', 'loanrate_12m', 'target', 'isTest']
+2025-07-15 20:28:31 | 데이터 타입:
+계약일자                object
+계약년월                 int64
+계약년도                 int64
+계약월                  int64
+자치구                 object
+법정동                 object
+강남3구여부               int64
+전용면적               float64
+층                    int64
+홈페이지유무               int64
+사용허가여부               int64
+연식                   int64
+브랜드등급               object
+아파트이름길이              int64
+지하철최단거리            float64
+반경_1km_지하철역_수        int64
+반경_500m_지하철역_수       int64
+반경_300m_지하철역_수       int64
+버스최단거리             float64
+반경_1km_버스정류장_수       int64
+반경_500m_버스정류장_수      int64
+반경_300m_버스정류장_수      int64
+총인구수                 int64
+성비(남/여)            float64
+loanrate_1m        float64
+loanrate_3m        float64
+loanrate_6m        float64
+loanrate_12m       float64
+target             float64
+isTest               int64
+dtype: object
+2025-07-15 20:28:31 | 통계 요약:
+               계약년월          계약년도           계약월        강남3구여부          전용면적  \
+count  1.119373e+06  1.119373e+06  1.119373e+06  1.119373e+06  1.119373e+06   
+mean   2.014849e+05  2.014786e+03  6.324766e+00  1.774610e-01  7.722677e+01   
+std    4.238612e+02  4.238030e+00  3.305370e+00  3.820585e-01  2.936963e+01   
+min    2.007010e+05  2.007000e+03  1.000000e+00  0.000000e+00  1.002000e+01   
+25%    2.011110e+05  2.011000e+03  3.000000e+00  0.000000e+00  5.967000e+01   
+50%    2.015080e+05  2.015000e+03  6.000000e+00  0.000000e+00  8.217000e+01   
+75%    2.018060e+05  2.018000e+03  9.000000e+00  0.000000e+00  8.496000e+01   
+max    2.023090e+05  2.023000e+03  1.200000e+01  1.000000e+00  4.243200e+02   
+
+                  층        홈페이지유무        사용허가여부            연식       아파트이름길이  \
+count  1.119373e+06  1.119373e+06  1.119373e+06  1.119373e+06  1.119373e+06   
+mean   8.914938e+00  9.558565e-02  2.250983e-01  1.587257e+01  5.256990e+00   
+std    5.993685e+00  2.940223e-01  4.176473e-01  9.554010e+00  2.625310e+00   
+min   -4.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00   
+25%    4.000000e+00  0.000000e+00  0.000000e+00  8.000000e+00  3.000000e+00   
+50%    8.000000e+00  0.000000e+00  0.000000e+00  1.500000e+01  5.000000e+00   
+75%    1.200000e+01  0.000000e+00  0.000000e+00  2.200000e+01  7.000000e+00   
+max    6.900000e+01  1.000000e+00  1.000000e+00  6.200000e+01  2.000000e+01   
+
+       ...  반경_500m_버스정류장_수  반경_300m_버스정류장_수          총인구수       성비(남/여)  \
+count  ...     1.119373e+06     1.119373e+06  1.119373e+06  1.119373e+06   
+mean   ...     2.397866e+01     9.172126e+00  4.515228e+05  9.651670e-01   
+std    ...     1.035647e+01     5.107439e+00  1.167993e+05  3.074808e-02   
+min    ...     0.000000e+00     0.000000e+00  1.204370e+05  8.776000e-01   
+25%    ...     1.700000e+01     6.000000e+00  3.739360e+05  9.431000e-01   
+50%    ...     2.300000e+01     8.000000e+00  4.417630e+05  9.617000e-01   
+75%    ...     3.000000e+01     1.200000e+01  5.451690e+05  9.875000e-01   
+max    ...     7.500000e+01     3.400000e+01  6.852790e+05  1.051100e+00   
+
+        loanrate_1m   loanrate_3m   loanrate_6m  loanrate_12m        target  \
+count  1.119373e+06  1.119373e+06  1.119373e+06  1.119373e+06  1.110101e+06   
+mean   3.880788e+00  3.896946e+00  3.924605e+00  3.975819e+00  5.796836e+04   
+std    1.264571e+00  1.265540e+00  1.268765e+00  1.271018e+00  4.651774e+04   
+min    2.390000e+00  2.430000e+00  2.460000e+00  2.480000e+00  3.500000e+02   
+25%    2.940000e+00  2.960000e+00  3.000000e+00  2.990000e+00  3.050000e+04   
+50%    3.420000e+00  3.430000e+00  3.420000e+00  3.420000e+00  4.465000e+04   
+75%    4.780000e+00  4.770000e+00  4.770000e+00  4.840000e+00  6.980000e+04   
+max    7.580000e+00  7.420000e+00  7.190000e+00  7.000000e+00  1.450000e+06   
+
+             isTest  
+count  1.119373e+06  
+mean   8.283209e-03  
+std    9.063445e-02  
+min    0.000000e+00  
+25%    0.000000e+00  
+50%    0.000000e+00  
+75%    0.000000e+00  
+max    1.000000e+00  
+
+[8 rows x 26 columns]
+2025-07-15 20:28:31 | >> EDA: 상관관계 히트맵 시각화
+2025-07-15 20:28:33 | >> EDA: 전용면적 vs 가격 산점도 시각화
+2025-07-15 20:28:34 | >> EDA: 주요 변수 데이터 분포 시각화
+2025-07-15 20:28:35 | >> EDA 완료
+2025-07-15 20:28:35 | >> 고급 특성 공학을 시작합니다...
+2025-07-15 20:28:36 | >> 고급 특성 공학 완료.
+2025-07-15 20:28:36 | >> 추가된 컬럼: ['자치구별_평균가격', '자치구별_가격편차', '자치구별_거래량', '면적_x_연식', '면적_x_층']
+2025-07-15 20:28:36 | >> 피처 선택 및 데이터 분리를 시작합니다...
+2025-07-15 20:28:36 | >> Train/Test 데이터 분리 완료.
+2025-07-15 20:28:37 | >> train_df 정제 완료: 0개 행 제거됨. 최종 1110101개 행 사용.
+2025-07-15 20:28:37 | >> 예측에 사용할 피처 개수: 33개
+2025-07-15 20:28:37 | >> 범주형 피처: ['계약일자', '자치구', '법정동', '브랜드등급']
+2025-07-15 20:28:37 | >> 범주형 Label Encoding 완료.
+2025-07-15 20:28:37 | >> 표준 출력 및 오류를 로그 파일로 리디렉션 시작
+2025-07-15 20:28:38 | >> LightGBM 모델 학습 시작
+2025-07-15 20:28:38 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 20:28:38 | [LightGBM] [Info] Total Bins 3636
+2025-07-15 20:28:38 | [LightGBM] [Info] Number of data points in the train set: 888080, number of used features: 33
+2025-07-15 20:28:38 | [LightGBM] [Info] Start training from score 57976.164328
+2025-07-15 20:28:39 | >> 모델 학습 완료. Validation RMSE: 12016.4981, MAE: 7343.8524, R2: 0.9334
+2025-07-15 20:28:41 | >> 표준 출력 및 오류 리디렉션 중지
+2025-07-15 20:28:41 | >> Permutation Importance를 계산합니다...
+2025-07-15 20:28:52 | >> Permutation Importance 계산 완료.
+2025-07-15 20:28:53 | >> 예측 오차 분석을 시작합니다...
+2025-07-15 20:28:53 | >> 표준 출력 및 오류를 로그 파일로 리디렉션 시작
+2025-07-15 20:28:53 | >> 강화된 교차 검증 및 하이퍼파라미터 탐색 시작
+2025-07-15 20:28:53 | Fitting 3 folds for each of 10 candidates, totalling 30 fits
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000[LightGBM] [Info] Total Bins 3309
+
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 51000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3421
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 40000.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3539
+[LightGBM] [Info] Number of data points in the train set: 740067, number of used features: 33
+[LightGBM] [Info] Start training from score 43300.000000
+[LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+[LightGBM] [Info] Total Bins 3309
+[LightGBM] [Info] Number of data points in the train set: 740068, number of used features: 33
+[LightGBM] [Info] Start training from score 51000.000000
+2025-07-15 21:29:29 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:29:29 | [LightGBM] [Info] Total Bins 3637
+2025-07-15 21:29:29 | [LightGBM] [Info] Number of data points in the train set: 1110101, number of used features: 33
+2025-07-15 21:29:29 | [LightGBM] [Info] Start training from score 44650.000000
+2025-07-15 21:33:04 | >> 최적 파라미터: {'subsample': 0.9, 'random_state': 42, 'objective': 'regression_l1', 'num_leaves': 50, 'n_estimators': 2000, 'metric': 'rmse', 'max_depth': -1, 'learning_rate': 0.05, 'colsample_bytree': 0.9}
+2025-07-15 21:33:04 | >> K-Fold 교차 검증으로 최종 모델 성능 평가
+2025-07-15 21:33:04 | --- Fold 1 학습 시작 ---
+2025-07-15 21:33:04 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:33:04 | [LightGBM] [Info] Total Bins 3634
+2025-07-15 21:33:04 | [LightGBM] [Info] Number of data points in the train set: 888080, number of used features: 33
+2025-07-15 21:33:04 | [LightGBM] [Info] Start training from score 44700.000000
+2025-07-15 21:36:04 | Fold 1 RMSE: 9010.5452
+2025-07-15 21:36:04 | --- Fold 2 학습 시작 ---
+2025-07-15 21:36:04 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:36:04 | [LightGBM] [Info] Total Bins 3639
+2025-07-15 21:36:04 | [LightGBM] [Info] Number of data points in the train set: 888081, number of used features: 33
+2025-07-15 21:36:04 | [LightGBM] [Info] Start training from score 44650.000000
+2025-07-15 21:39:04 | Fold 2 RMSE: 9400.4003
+2025-07-15 21:39:04 | --- Fold 3 학습 시작 ---
+2025-07-15 21:39:04 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:39:05 | [LightGBM] [Info] Total Bins 3635
+2025-07-15 21:39:05 | [LightGBM] [Info] Number of data points in the train set: 888081, number of used features: 33
+2025-07-15 21:39:05 | [LightGBM] [Info] Start training from score 44700.000000
+2025-07-15 21:42:01 | Fold 3 RMSE: 8783.4954
+2025-07-15 21:42:01 | --- Fold 4 학습 시작 ---
+2025-07-15 21:42:01 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:42:02 | [LightGBM] [Info] Total Bins 3640
+2025-07-15 21:42:02 | [LightGBM] [Info] Number of data points in the train set: 888081, number of used features: 33
+2025-07-15 21:42:02 | [LightGBM] [Info] Start training from score 44550.000000
+2025-07-15 21:45:01 | Fold 4 RMSE: 8904.5569
+2025-07-15 21:45:02 | --- Fold 5 학습 시작 ---
+2025-07-15 21:45:02 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:45:02 | [LightGBM] [Info] Total Bins 3636
+2025-07-15 21:45:02 | [LightGBM] [Info] Number of data points in the train set: 888081, number of used features: 33
+2025-07-15 21:45:02 | [LightGBM] [Info] Start training from score 44700.000000
+2025-07-15 21:48:00 | Fold 5 RMSE: 8555.5099
+2025-07-15 21:48:00 | -------------------------------------------
+2025-07-15 21:48:00 | >> 최종 CV 평균 RMSE: 8930.9015
+2025-07-15 21:48:00 | -------------------------------------------
+2025-07-15 21:48:00 | [LightGBM] [Warning] Using sparse features with CUDA is currently not supported.
+2025-07-15 21:48:01 | [LightGBM] [Info] Total Bins 3637
+2025-07-15 21:48:01 | [LightGBM] [Info] Number of data points in the train set: 1110101, number of used features: 33
+2025-07-15 21:48:01 | [LightGBM] [Info] Start training from score 44650.000000
+2025-07-15 21:51:36 | >> 표준 출력 및 오류 리디렉션 중지
+2025-07-15 21:51:36 | >> 최종 모델 학습(최적 파라미터 사용) 및 제출 파일 생성을 시작합니다...
+2025-07-15 21:51:36 | >> [오류] 최종 예측 및 제출 파일 생성 중 문제 발생: name 'final_model' is not defined
+2025-07-15 21:51:36 | >> 모델링 종료
+2025-07-15 21:51:36 | ==================================================
+2025-07-15 21:58:19 | >> 최종 모델 학습(최적 파라미터 사용) 및 제출 파일 생성을 시작합니다...
+2025-07-15 21:58:19 | >> 모델 저장 완료: final_price_model.pkl
+2025-07-15 21:58:19 | >> 'price_prediction_4_submission.csv' 파일을 찾을 수 없어 새로 생성합니다.
+2025-07-15 21:58:19 | >> 제출 파일 '../../data/processed/submissions/price_prediction_4_submission.csv' 생성 완료.
+2025-07-15 21:58:19 | >> 모델링 종료
+2025-07-15 21:58:19 | ==================================================

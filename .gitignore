@@ -8,6 +8,8 @@ media
 
 # Backup files #
 *.bak
+*.pkl
+*.joblib
 
 # If you are using PyCharm #
 # User-specific stuff
@@ -153,24 +155,36 @@ __pycache__/  # Python cache files
 nosetests.xml # Test results
 *.log         # Log files
 
+
 # 제외 시킬 파일 (대용량, 기타 이유 등)
-data/raw/basefile.tar
 .vscode
+data/raw/basefile.tar
+data/raw/train.csv
 data/processed/cleaned_data/total_clean.csv
 data/processed/cleaned_data/train_row_cleaned.csv
-data/raw/train.csv
+data/processed/cleaned_data/train_clean.csv
+data/processed/cleaned_data/train_xy.csv
+data/processed/geocoding/train_geocoded_train.csv
+data/processed/geocoding/train_geocoded_checkpoint.csv
+data/processed/transportation-features/train_transportation_features.csv
+data/processed/transportation-features/train_transportation_merged.csv
 data/processed/transportation-features/train_transportation.csv
 data/processed/price-prediction/train_unique_check.csv
 data/processed/price-prediction/train_final.csv
-data/processed/cleaned_data/train_clean.csv
-data/processed/transportation-features/train_transportation_features.csv
-data/processed/transportation-features/train_transportation_merged.csv
+data/processed/engineered_data
+data/ephemeral/home/aibootcamp14/upstageailab-ml-competition-ml-5/images
 **/train_geocoded.csv
-data/processed/geocoding-missing-coords/train_geocoded_train.csv
-bfg.jar
+
+src/data/archive
 src/data/catboost_info/
 src/data/_NOTUSED_CodeTestFile_Modeling_NonLinear.py
-*.pkl
+
+
+bfg.jar
+
 
 # 제외 되면 안되는 필요한 파일 예외처리
 !data/logs/**/*.log
+
+# 생성된 models 폴더 내의 모델 파일들 git에 push하려면 주석 해제
+#!models/*.pkl

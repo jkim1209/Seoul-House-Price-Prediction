@@ -96,7 +96,7 @@ test_df['계약년월idx'] = ((test_df['계약년도'] - 2007) * 12 + test_df['�
 
 
 # 이미지 저장경로 생성
-image_save_dir = '../../docs/image/Model_XGB'
+image_save_dir = '../../images/jangwon/Model_XGB'
 os.makedirs(image_save_dir, exist_ok=True)
 
 # 모델 저장경로 생성
@@ -104,7 +104,7 @@ model_save_dir = '../../model'
 os.makedirs(model_save_dir, exist_ok=True)
 
 # 예측값 저장경로 생성
-prediction_save_dir = '../../data/processed/submissions'
+prediction_save_dir = '../../data/processed/submissions/jangwon'
 os.makedirs(prediction_save_dir, exist_ok=True)
 
 # GridSearchCV, RandomizedSearchCV에 TimeSeriesSplit적용
