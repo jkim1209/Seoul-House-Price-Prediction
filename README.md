@@ -357,7 +357,7 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 ### 🧐분석 및 해결
 
 - 공변량 시프트 문제 해결:
-    - train: 2007~2023.06 / test: 2023.07~09 간 차이
+    - train: 2007\~2023.06 / test: 2023.07\~09 간 차이
     - train 데이터의 후반부만 사용하여 일반화 성능 확보
 <br>
 
