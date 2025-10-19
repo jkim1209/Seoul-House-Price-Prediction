@@ -2,7 +2,10 @@
 
 
 본 프로젝트는 2025년 7월 진행된 **서울시 아파트 실거래가 예측** 머신러닝 경진대회의 결과물입니다. 회귀(Regression) 문제 해결을 목표로, 데이터 엔지니어링부터 모델링, 협업까지 전 과정을 담았습니다.
-<br><br><br>
+
+> 발표자료: [Google Slides](https://docs.google.com/presentation/d/1wBqAXndFJrGyTBmdimtKoiKXMXfscTrOSici77yqrlU/)
+
+<br>
 
 ## 🎯 프로젝트 배경 및 목적
 
@@ -519,3 +522,4 @@ $$
 - 주택 관련 논문:
     - https://www.kdi.re.kr/upload/7837/1_1.pdf
     - https://www.emerald.com/insight/content/doi/10.1108/jfm-02-2016-0003/full/html
+
