@@ -36,8 +36,8 @@
 저희 팀은 단순히 순위 경쟁을 넘어, 데이터 전처리부터 심도 깊은 피처 엔지니어링, 그리고 정교한 모델링에 이르기까지 **전 과정을 직접 수행하며 실질적인 데이터 분석 및 머신러닝 개발 경험을 쌓는 데 중점**을 두었습니다.
 
 특히, 모델의 예측 성능뿐만 아니라 **설명 가능성(Interpretability)을 강조**하여, 모델이 특정 가격을 예측한 이유를 명확히 제시할 수 있도록 노력했습니다.
-<br>
 
+---
 
 ## 경진대회 개요
 
@@ -60,34 +60,22 @@
 - **주요 기술**: Feature Engineering, Time Series CV, Ensemble (Voting, Stacking), XGBoost, LightGBM, CatBoost
 - **핵심 성과**: 최종 RMSE **46,950** (대회 5위), 체계적인 협업 프로세스 구축
 - **핵심 교훈**: 데이터 품질의 중요성, 시계열 특성 고려의 필요성, 모델 설명 가능성의 가치
-<br>
-
 
 ---
 
 
 ## 팀 소개
-<br>
 
 > "한 줄의 코드, 한 뼘의 통찰. 정확한 예측 모델을 향하여!"
-<br> 
-
 
 ‘3X+Y’는 팀원들의 MBTI 유형 분포가 ‘3:1’인 점에서 착안한 이름입니다. AI, 금융·통계, 컴퓨터공학 등 다양한 배경을 가진 팀원들이 모여 시너지를 만들었습니다.
-<br>
-
 
 | ![김선민](https://github.com/user-attachments/assets/263154ec-efa6-473a-bd55-3737fb5741bc) | <img src="https://avatars.githubusercontent.com/u/128503571?v=4](https://avatars.githubusercontent.com/u/128503571?v=4" width="200"> | <img src="https://github.com/user-attachments/assets/5c04a858-46ed-4043-9762-b7eaf7b1149a" width="200"> | ![장윤정](https://github.com/user-attachments/assets/af6a9ff5-56fc-4cd5-b61e-61269a24278d) |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | [김선민](https://github.com/nimnusmik) | [김장원](https://github.com/jkim1209) | [최현화](https://github.com/iejob) | [장윤정](https://github.com/yjjang06) |
 | 팀 매니징 및 모델링 | 데이터 수집, 전처리, 모델링, 발표 | DE / FE / QA / ML / RM | 모델링 |
 
-
-<br>
-
-
 ---
-
 
 ## 협업 방식 및 도구
 
@@ -97,7 +85,6 @@
 <br>
 이러한 체계적인 협업 방식이 프로젝트 성공에 크게 기여했습니다.
 <br>
-
 
 ### 🧑‍🤝‍🧑 협업 마인드셋
 
@@ -109,7 +96,6 @@
 
 - 주도적 문제 해결 및 제안
 <br>
-
 
 ### 🛠️ 협업 도구
 
@@ -132,11 +118,8 @@
 
 * Google Drive:
     * 대용량 데이터 저장, 버전 관리, 문서 공동 편집을 위해 활용했습니다.
-<br>
-
 
 ---
-
 
 ## Timeline
 
@@ -162,7 +145,6 @@
     - 회의: 매일 **18:00** 결과 공유 회의
 
 ---
-
 
 ## 프로젝트 흐름도 (Flowchart)
 <br>
@@ -204,13 +186,10 @@ graph TD;
 
 ---
 
-
 ## 개발 환경 구축
 
-
 프로젝트 개발 환경은 다음과 같이 구축할 수 있습니다.
-<br><br>
-
+<br>
 
 1.  **제공받은 경진대회 서버 사용**
 <br>
@@ -268,10 +247,8 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 │ ├──data                             # 데이터 엔지니어링, 피처엔지니어링, 모델링 관련
 └ └──log                              # 로깅 기능
 ```
-<br>
 
 ---
-
 
 ## EDA
 
@@ -294,11 +271,8 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 
 4. 모델 학습용 컬럼 확정
   - 위 결과를 바탕으로 학습에 사용할 컬럼 확정
-<br>
-
 
 ---
-
 
 ## Feature engineering
 
@@ -329,10 +303,8 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 5. 외부 변수 추가
   - 인구수 관련 변수 : `총인구수`, `성비(남/여)` 추가
   - 대출금리 관련 변수 : `loanrate_1m`, `loanrate_3m`, `loanrate_6m`, `loanrate_12m` 추가
-<br>
 
 ---
-
 
 ## Modeling 전략
 
@@ -362,10 +334,8 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 <br>
 
 - **딥러닝 실험**: **AutoInt** 모델을 도입하여 고차원 피처 상호작용 학습을 시도함
-<br>
 
 ---
-
 
 ## 분석 인사이트 및 결과
 
@@ -390,7 +360,6 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 - RMSE 개선:
     - 최종 제출 모델 GB_v4 기준 RMSE: **46950.62**
 <br>
-
 
 ### 🧑‍🤝‍🧑 팀원별 인사이트
 
@@ -433,10 +402,8 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 - 기존 무작위 데이터 분할에 의한 비현실적 성능 지표 문제를 발견하고 시계열 기반 검증 도입
 - 단일 모델 편향성 문제를 인지하고 LightGBM과 CatBoost 앙상블로 예측 안정성 향상
 - 모델 설명 가능성 및 신뢰성 확보를 위해 ‘왜’ 예측하는지에 대한 이해 중요성 강조
-<br>
 
 ---
-
 
 ## 결과 및 주요 인사이트
 
@@ -451,17 +418,13 @@ $$
 - $\hat{y}_i$: 모델의 예측 가격
 <br>
 
-
 ### ✨ 최종 결과
 
-
 <img width="993" height="619" alt="스크린샷 2025-07-19 205235" src="https://github.com/user-attachments/assets/ee6b2806-0eac-49b6-afdd-77236d7edc5e" />
-
 
 - **Evaluation Metric**: RMSE (Root Mean Squared Error)
 - **Leader Board Score**: **46950.6270** (5위)
 <br>
-
 
 ### 🔑 핵심 인사이트
 
@@ -473,7 +436,6 @@ $$
 
 3. **모델 설명 가능성**: 모델의 예측 성능만큼 **‘왜’** 그렇게 예측하는지 이해하는 과정이 모델 신뢰도 제고와 개선에 필수적임을 깨달았습니다.
 <br>
-
 
 ### 🖼️ 모델링 결과 시각화 이미지
 
@@ -489,7 +451,6 @@ $$
 ---
 
 ## 회고 (Retrospective)
-
 
 **🥇 목표 달성도 및 성과**
 
@@ -508,13 +469,11 @@ $$
 <br>
 
 ### 🗣️ 팀원별 소감
-<br>
 
 - **김선민**: 결과 지표에 매몰되기보다, 현상을 깊이 이해하고 ‘왜’를 질문하는 과정의 중요성을 깨달았습니다.
 - **김장원**: "Garbage in, Garbage out." 좋은 데이터와 도메인 지식이 모델 성능을 좌우함을 실감했습니다.
 - **장윤정**: 전반적인 분석/모델링 경험을 통해, 앞으로 더 다양한 가설을 세우고 실험하는 역량을 키우고 싶습니다.
 - **최현화**: 라이브러리 사용을 넘어 모델의 작동 원리를 탐구하고, 문제에 맞는 최적의 해결책을 설계하는 엔지니어가 되겠습니다.
-<br>
 
 본 경진대회 사례는 머신러닝 프로젝트에서 데이터의 이해와 전처리, 체계적 협업, 그리고 다양한 모델링 전략의 중요성을 극명하게 보여줍니다. 
 특히 시계열 특성을 고려한 검증과 피처 엔지니어링이 모델 성능을 좌우하며, 앙상블과 딥러닝 모델의 조합이 예측 정확도를 높였습니다. 
@@ -529,5 +488,6 @@ $$
 - 주택 관련 논문:
     - https://www.kdi.re.kr/upload/7837/1_1.pdf
     - https://www.emerald.com/insight/content/doi/10.1108/jfm-02-2016-0003/full/html
+
 
 
