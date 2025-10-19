@@ -5,9 +5,26 @@
 
 > 발표자료: [Google Slides](https://docs.google.com/presentation/d/1wBqAXndFJrGyTBmdimtKoiKXMXfscTrOSici77yqrlU/)
 
-<br>
+## 📚 Table of Contents
+- [프로젝트 배경 및 목적](#프로젝트-배경-및-목적)
+- [경진대회 개요](#경진대회-개요)
+- [핵심 요약 (TL;DR)](#핵심-요약-tldr)
+- [팀 소개](#팀-소개)
+- [협업 방식 및 도구](#협업-방식-및-도구)
+- [Timeline](#timeline)
+- [프로젝트 흐름도 (Flowchart)](#프로젝트-흐름도-flowchart)
+- [개발 환경 구축](#개발-환경-구축)
+- [EDA](#eda)
+- [Feature engineering](#feature-engineering)
+- [Modeling 전략](#modeling-전략)
+- [분석 인사이트 및 결과](#분석-인사이트-및-결과)
+- [결과 및 주요 인사이트](#결과-및-주요-인사이트)
+- [회고 (Retrospective)](#회고-retrospective)
+- [Reference](#reference)
 
-## 🎯 프로젝트 배경 및 목적
+---
+
+## 프로젝트 배경 및 목적
 
 
 부동산 시장에서 아파트 가격 예측은 구매자와 판매자 모두의 합리적인 의사결정을 돕는 중요한 과제입니다. 
@@ -19,10 +36,10 @@
 저희 팀은 단순히 순위 경쟁을 넘어, 데이터 전처리부터 심도 깊은 피처 엔지니어링, 그리고 정교한 모델링에 이르기까지 **전 과정을 직접 수행하며 실질적인 데이터 분석 및 머신러닝 개발 경험을 쌓는 데 중점**을 두었습니다.
 
 특히, 모델의 예측 성능뿐만 아니라 **설명 가능성(Interpretability)을 강조**하여, 모델이 특정 가격을 예측한 이유를 명확히 제시할 수 있도록 노력했습니다.
-<br><br><br>
+<br>
 
 
-## 🏆 경진대회 개요
+## 경진대회 개요
 
 * **기간**: 2025년 7월 7일 ~ 2025년 7월 17일
 
@@ -33,24 +50,23 @@
     * 예측 모델의 성능을 극대화하기 위한 창의적인 **피처 엔지니어링** 기법 적용
     * 다양한 머신러닝/딥러닝 기법을 활용한 **최적의 모델링** 과정 완성
     * 개발된 모델의 예측 결과에 대한 **설명 가능성 강조** 및 근거 제시
-  <br><br><br>
 
+---
 
-
-## 🚀 핵심 요약 (TL;DR)
+## 핵심 요약 (TL;DR)
 
 - **주제**: 서울시 아파트 실거래가 예측을 위한 머신러닝 회귀 모델 개발
 - **팀**: `3X+Y` (AI·통계·컴퓨터공학 전공 4인)
 - **주요 기술**: Feature Engineering, Time Series CV, Ensemble (Voting, Stacking), XGBoost, LightGBM, CatBoost
 - **핵심 성과**: 최종 RMSE **46,950** (대회 5위), 체계적인 협업 프로세스 구축
 - **핵심 교훈**: 데이터 품질의 중요성, 시계열 특성 고려의 필요성, 모델 설명 가능성의 가치
-<br><br><br>
+<br>
 
 
 ---
 
 
-## 👨‍💻 팀: 3X+Y
+## 팀 소개
 <br>
 
 > "한 줄의 코드, 한 뼘의 통찰. 정확한 예측 모델을 향하여!"
@@ -67,20 +83,20 @@
 | 팀 매니징 및 모델링 | 데이터 수집, 전처리, 모델링, 발표 | DE / FE / QA / ML / RM | 모델링 |
 
 
-<br><br><br>
+<br>
 
 
 ---
 
 
-## 🤝 협업 방식 및 도구
+## 협업 방식 및 도구
 
 우리는 **GitHub Issues**, **Slack**, 그리고 **Notion**을 활용해 업무를 실시간으로 관리하고 진행 상황을 투명하게 공유했습니다.
 <br>
 정기적으로 하루 2회(아침, 저녁) 미팅을 진행하며 약 70개의 이슈를 체계적으로 관리했습니다.
 <br>
 이러한 체계적인 협업 방식이 프로젝트 성공에 크게 기여했습니다.
-<br><br><br>
+<br>
 
 
 ### 🧑‍🤝‍🧑 협업 마인드셋
@@ -92,7 +108,7 @@
 - 책임감 있는 업무 완수
 
 - 주도적 문제 해결 및 제안
-<br><br><br>
+<br>
 
 
 ### 🛠️ 협업 도구
@@ -116,13 +132,13 @@
 
 * Google Drive:
     * 대용량 데이터 저장, 버전 관리, 문서 공동 편집을 위해 활용했습니다.
-<br><br><br>
+<br>
 
 
 ---
 
 
-## 🗓️ Timeline
+## Timeline
 
 - 모델링 전(7/7–7/11)
     - 7/7–7/8: 주제 정의·데이터 구조 탐색
@@ -144,13 +160,11 @@
 - 모델링·최종 검증(7/14–7/17)
     - 7/14–7/17: 모델 학습·추가 피처링 병행·최종 RMSE 검증
     - 회의: 매일 **18:00** 결과 공유 회의
-<br><br><br>
-
 
 ---
 
 
-## ⚙️ 프로젝트 흐름도 (Flowchart)
+## 프로젝트 흐름도 (Flowchart)
 <br>
 
 저희 5조의 프로젝트 진행 과정은 아래와 같습니다.
@@ -187,13 +201,11 @@ graph TD;
     I --> Q[발표];
 
 ```
-<br><br><br>
-
 
 ---
 
 
-## 💻 개발 환경 구축
+## 개발 환경 구축
 
 
 프로젝트 개발 환경은 다음과 같이 구축할 수 있습니다.
@@ -256,12 +268,12 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 │ ├──data                             # 데이터 엔지니어링, 피처엔지니어링, 모델링 관련
 └ └──log                              # 로깅 기능
 ```
-<br><br><br>
+<br>
 
 ---
 
 
-## 📊 EDA
+## EDA
 
 1. 결측치 현황 파악
   - 전체 52개 컬럼 중 41개 컬럼 결측치 존재
@@ -282,13 +294,13 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 
 4. 모델 학습용 컬럼 확정
   - 위 결과를 바탕으로 학습에 사용할 컬럼 확정
-<br><br><br>
+<br>
 
 
 ---
 
 
-## ✨ Feature engineering
+## Feature engineering
 
 1. 결측치 처리
   - 결측치가 많은 변수 중, 논리적·직관적으로 필요 없다고 판단되는 변수들 제거
@@ -317,12 +329,12 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 5. 외부 변수 추가
   - 인구수 관련 변수 : `총인구수`, `성비(남/여)` 추가
   - 대출금리 관련 변수 : `loanrate_1m`, `loanrate_3m`, `loanrate_6m`, `loanrate_12m` 추가
-<br><br><br>
+<br>
 
 ---
 
 
-## 🤖 Modeling 전략
+## Modeling 전략
 
 - 모델: XGBoost, LightGBM, CatBoost, RandomForest, Stacking, Voting
 <br>
@@ -350,12 +362,12 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 <br>
 
 - **딥러닝 실험**: **AutoInt** 모델을 도입하여 고차원 피처 상호작용 학습을 시도함
-<br><br><br>
+<br>
 
 ---
 
 
-## 📈 분석 인사이트 및 결과
+## 분석 인사이트 및 결과
 
 ### 🧐분석 및 해결
 
@@ -377,7 +389,7 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 
 - RMSE 개선:
     - 최종 제출 모델 GB_v4 기준 RMSE: **46950.62**
-<br><br><br>
+<br>
 
 
 ### 🧑‍🤝‍🧑 팀원별 인사이트
@@ -421,12 +433,12 @@ git clone git@github.com:AIBootcamp14/upstageailab-ml-competition-ml-5.git
 - 기존 무작위 데이터 분할에 의한 비현실적 성능 지표 문제를 발견하고 시계열 기반 검증 도입
 - 단일 모델 편향성 문제를 인지하고 LightGBM과 CatBoost 앙상블로 예측 안정성 향상
 - 모델 설명 가능성 및 신뢰성 확보를 위해 ‘왜’ 예측하는지에 대한 이해 중요성 강조
-<br><br><br>
+<br>
 
 ---
 
 
-## 📊 결과 및 주요 인사이트
+## 결과 및 주요 인사이트
 
 ### 📉 RMSE (Root Mean Squared Error)
 
@@ -437,7 +449,7 @@ $$
 - $N$: 데이터 포인트의 수
 - $y_i$: 실제 가격
 - $\hat{y}_i$: 모델의 예측 가격
-<br><br><br>
+<br>
 
 
 ### ✨ 최종 결과
@@ -448,7 +460,7 @@ $$
 
 - **Evaluation Metric**: RMSE (Root Mean Squared Error)
 - **Leader Board Score**: **46950.6270** (5위)
-<br><br><br>
+<br>
 
 
 ### 🔑 핵심 인사이트
@@ -460,7 +472,7 @@ $$
 <br>
 
 3. **모델 설명 가능성**: 모델의 예측 성능만큼 **‘왜’** 그렇게 예측하는지 이해하는 과정이 모델 신뢰도 제고와 개선에 필수적임을 깨달았습니다.
-<br><br><br>
+<br>
 
 
 ### 🖼️ 모델링 결과 시각화 이미지
@@ -473,12 +485,10 @@ $$
 
 <img width="1944" height="1172" alt="image" src="https://github.com/user-attachments/assets/3d04c8b2-5bad-43f5-95da-14e5bce708ac" />
 <img width="1181" height="841" alt="05_Feature_Importance" src="https://github.com/user-attachments/assets/c7088002-5e8f-4a8e-8959-22cbb51ba510" />
-<br><br><br>
 
 ---
 
-
-## 🤔 회고 (Retrospective)
+## 회고 (Retrospective)
 
 
 **🥇 목표 달성도 및 성과**
@@ -486,7 +496,7 @@ $$
 초기 목표였던 ‘팀원 모두가 데이터 전처리부터 모델링까지 전 과정 경험’은 성공적으로 달성되었습니다. 
 개인별 아이디어를 바탕으로 전 과정을 수행하며 역량을 내재화했고, 팀으로서 서울시 아파트 실거래가 예측 경진대회에서 5위(RMSE 46950.6270)라는 우수한 성과를 거두었습니다. 
 결과적으로 개인 성장과 팀 경쟁력 두 마리 토끼를 잡는 의미 있는 프로젝트였습니다.
-<br><br><br>
+<br>
 
 **😥 아쉬웠던 점 및 개선 사항**
 
@@ -495,7 +505,7 @@ $$
 - 다양한 모델 실험 과정에서 학습 대기 시간이 길어 심층 학습 기회 제한
 - 경진대회 마감 직전에서야 첫 결과 제출을 시작해 성능 차이 분석 및 개선 시간이 부족
 - 초기에 예측 결과를 지속 제출하는 전략이 부족해 결과 개선에 한계
-<br><br><br>
+<br>
 
 ### 🗣️ 팀원별 소감
 <br>
@@ -510,16 +520,14 @@ $$
 특히 시계열 특성을 고려한 검증과 피처 엔지니어링이 모델 성능을 좌우하며, 앙상블과 딥러닝 모델의 조합이 예측 정확도를 높였습니다. 
 팀원 모두가 전 과정을 경험하며 개인과 팀의 역량을 함께 성장시킨 점이 가장 큰 성과라 할 수 있습니다. 
 향후 프로젝트에서는 초기 예측 결과의 빠른 제출과 피드백, 다양한 모델 심층 탐색이 더욱 보완되어야 할 과제로 남았습니다.
-<br><br><br>
 
 ---
 
-
-### 📚 Reference
-<br>
+## Reference
 
 - 한국기업평판연구소: https://brikorea.com/
 - 주택 관련 논문:
     - https://www.kdi.re.kr/upload/7837/1_1.pdf
     - https://www.emerald.com/insight/content/doi/10.1108/jfm-02-2016-0003/full/html
+
 
